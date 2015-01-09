@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema">
+	<datasource enabled="true" jndi-name="jdbc/ApiManagerDS" pool-name="apiman-manager-api" use-java-context="true">
+		<connection-url>jdbc:postgresql://postgresserver:5432/apiman</connection-url>
+		<driver>postgresql-9.3-1102.jdbc41.jar</driver>
+		<pool>
+			<max-pool-size>30</max-pool-size>
+		</pool>
+		<security>
+			<user-name>apiman</user-name>
+			<password>apiman_p123</password>
+		</security>
+	</datasource>
+</datasources>

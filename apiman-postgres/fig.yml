@@ -1,0 +1,14 @@
+postgres:
+  build: ./postgres/
+  environment: 
+    POSTGRES_USER: apiman
+    POSTGRES_PASSWORD: apiman_p123 
+  ports:
+    - 5432:5432    
+apiman:
+  build: ./apiman/
+  links:
+    - postgres:postgresserver
+  ports:
+    - 8080:8080
+    - 9990:9990
