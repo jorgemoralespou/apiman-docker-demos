@@ -1,0 +1,62 @@
+[
+    {
+      "name" : "BASIC Authentication Policy",
+      "description" : "Enables HTTP BASIC Authentication on a service.  Some configuration required.",
+      "policyImpl" : "class:io.apiman.gateway.engine.policies.BasicAuthenticationPolicy",
+      "icon" : "lock",
+      "templates" : [
+        {
+          "language" : null,
+          "template" : "Access to the service is protected by BASIC Authentication through the '@{realm}' authentication realm.  @if{forwardIdentityHttpHeader != null}Successfully authenticated requests will forward the authenticated identity to the back end service via the '@{forwardIdentityHttpHeader}' custom HTTP header.@end{}"
+        }
+      ]
+    },
+    {
+      "name" : "IP Whitelist Policy",
+      "description" : "Only requests that originate from a specified set of valid IP addresses will be allowed through.",
+      "policyImpl" : "class:io.apiman.gateway.engine.policies.IPWhitelistPolicy",
+      "icon" : "filter",
+      "templates" : [
+        {
+          "language" : null,
+          "template" : "Only requests that originate from the set of @{ipList.size()} configured IP address(es) will be allowed to invoke the managed service."
+        }
+      ]
+    },
+    {
+      "name" : "IP Blacklist Policy",
+      "description" : "Requests that originate from a specified set of valid IP addresses will be denied access.",
+      "policyImpl" : "class:io.apiman.gateway.engine.policies.IPBlacklistPolicy",
+      "icon" : "thumbs-down",
+      "templates" : [
+        {
+          "language" : null,
+          "template" : "Requests that originate from the set of @{ipList.size()} configured IP address(es) will be denied access to the managed service."
+        }
+      ]
+    },
+    {
+      "name" : "Rate Limiting Policy",
+      "description" : "Enforces rate configurable request rate limits on a service.  This ensures that consumers can't overload a service with too many requests.",
+      "policyImpl" : "class:io.apiman.gateway.engine.policies.RateLimitingPolicy",
+      "icon" : "sliders",
+      "templates" : [
+        {
+          "language" : null,
+          "template" : "Consumers are limited to @{limit} requests per @{granularity} per @{period}."
+        }
+      ]
+    },
+    {
+      "name" : "Ignored Resources Policy",
+      "description" : "Requests satisfying the provided regular expression will be ignored.",
+      "policyImpl" : "class:io.apiman.gateway.engine.policies.IgnoredResourcesPolicy",
+      "icon" : "eye-slash",
+      "templates" : [
+        {
+          "language" : null,
+          "template" : "Requests matching any of the @{pathsToIgnore.size()} regular expressions provided will receive a 404 error code."
+        }
+      ]
+    }
+]
