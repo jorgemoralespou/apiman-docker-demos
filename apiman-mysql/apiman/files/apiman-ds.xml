@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema">
+	<datasource enabled="true" jndi-name="jdbc/ApiManagerDS" pool-name="apiman-manager-api" use-java-context="true">
+		<connection-url>jdbc:mysql://mysqlserver:3306/apiman</connection-url>
+                <driver>mysql-connector-java-5.1.33-bin.jar_com.mysql.jdbc.Driver_5_1</driver>
+<!--
+		<driver>mysql-connector-java-5.1.33-bin.jar</driver>
+-->
+		<pool>
+			<max-pool-size>30</max-pool-size>
+		</pool>
+		<security>
+			<user-name>apiman</user-name>
+			<password>apiman_p123</password>
+		</security>
+	</datasource>
+</datasources>

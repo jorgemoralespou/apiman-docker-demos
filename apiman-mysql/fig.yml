@@ -1,0 +1,22 @@
+mysql:
+  build: ./mysql/
+  environment: 
+    MYSQL_USER: apiman
+    MYSQL_PASSWORD: apiman_p123 
+    MYSQL_DATABASE: apiman
+    MYSQL_ROOT_PASSWORD: mysecretpassword
+  ports:
+    - 3306:3306    
+services:
+  build: ./services/
+  ports:
+    - 8081:8080
+    - 9991:9990 
+apiman:
+  build: ./apiman/
+  links:
+    - mysql:mysqlserver
+    - services:services
+  ports:
+    - 8080:8080
+    - 9990:9990
