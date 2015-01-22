@@ -1,17 +1,13 @@
 keycloak:
   build: ./keycloak/
-  ports:
-#    - 5432:5432    
+  net: "host"
 services:
   build: ./services/
-  ports:
     - 8081:8080
     - 9991:9990 
+  net: "host"
 apiman:
   build: ./apiman/
   links:
-    - keycloak:keycloakserver
     - services:services
-  ports:
-    - 8080:8080
-    - 9990:9990
+  net: "host"
