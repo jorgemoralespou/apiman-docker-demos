@@ -1,13 +1,6 @@
 keycloak:
   build: ./keycloak/
   net: "host"
-services:
-  build: ./services/
-    - 8081:8080
-    - 9991:9990 
-  net: "host"
 apiman:
   build: ./apiman/
-  links:
-    - services:services
   net: "host"

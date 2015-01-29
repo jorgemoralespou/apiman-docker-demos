@@ -1,4 +1,4 @@
-FROM apiman/on-wildfly8:1.0.2.Final
+FROM jboss/apiman-wildfly
 
 RUN $JBOSS_HOME/bin/add-user.sh admin admin123! --silent
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "-c", "standalone-apiman.xml", "-Djboss.socket.binding.port-offset=1000"]
