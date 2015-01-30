@@ -1,4 +1,4 @@
-FROM jboss/apiman-wildfly
+FROM jboss/apiman-wildfly:1.0.2.Final
 
 RUN $JBOSS_HOME/bin/add-user.sh admin admin123! --silent
 
